@@ -16,8 +16,9 @@ class MyWebSocketActor(out: ActorRef, id: Long) extends Actor with ActorLogging 
    */
 
   override def preStart() = {
-    log.info("Sending ID!")
-    out ! "Connection ID: " + id.toString
+    val msg = "Connection ID: " + id.toString
+    log.info(msg)
+    out ! msg
   }
 
   def receive = {
